@@ -1,5 +1,6 @@
 body {
     margin: 20px;
+    min-width: 250px;
 }
 
 h3 {
@@ -15,8 +16,8 @@ h3 {
 }
 
 .box {
-    height: 100%;
-    width: 100%;
+    height: 90%;
+    width: 90%;
     outline: black solid 5px;
     background-color: aliceblue;
     padding: 20px;
@@ -33,5 +34,13 @@ h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+}
+
+@media all and (max-width: 390px) {
+.frame {
+    width: 90%;
+
+}
 
 }
