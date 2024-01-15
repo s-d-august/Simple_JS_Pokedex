@@ -5,13 +5,10 @@ body {
 h3 {
     color: aliceblue;
     position: absolute;
-    top: 7px;
+    top: 8px;
 }
 
 .frame {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     margin: auto;
     height: 500px;
     width: 350px;
