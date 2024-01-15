@@ -1,0 +1,17 @@
+p {
+    color: red;
+}
+
+body {
+    margin: 20px;
+}
+
+.box {
+    height: 500px;
+    width: 500px;
+    outline: black solid 5px;
+    margin: auto;
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 0 5px 5px 5px;
+}
