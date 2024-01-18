@@ -5,13 +5,15 @@ let pokemonList = [
 ];
 
 // Lists names and weights of pokemonList
-for (let i = 0; i < pokemonList.length; i++){
-    let pokename = pokemonList[i].name;
-    let pokeweight = pokemonList[i].weight;
-    if (pokeweight > 100) {
-        document.write(`${pokename} (weight: ${pokeweight}) Wow, that's big!<br>`)
-    } // Pokemon with weight over 100 get flagged with "Wow, that's big!"
-    else{
-        document.write(`${pokename} (weight: ${pokeweight})<br>`)}
-    
-}
+function printArray(list){
+for (let i = 0; i < list.length; i++){
+    let pokeName = list[i].name;
+    let pokeWeight = list[i].weight;
+    document.write(`${pokeName} (weight: ${pokeWeight})`);
+    if (pokeWeight > 100) {
+        document.write(` Wow, that's big!<br>`);}
+        else {document.write('<br>')}
+    }} // Pokemon with weight over 100 get flagged with "Wow, that's big!"
+
+    printArray(pokemonList);
+
