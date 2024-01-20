@@ -9,7 +9,10 @@ let pokemonRepository = (function () {
       if ((typeof poke) !== Object) {
         document.write(`This Pokemon isn't formatted correctly!`)
     }
-    else {pokemonList.push(pokemon);}
+    else if ((poke.hasOwnProperty('name' || 'types' || 'number' || 'weight'))) {
+        {pokemonList.push(poke);}
+    }
+    else document.write(`This Pokemon doesn't have any of the correct keys!<br>`)
     }
   
     function getAll() {
