@@ -6,7 +6,10 @@ let pokemonRepository = (function () {
       ];
   
     function add(poke) {
-      pokemonList.push(poke);
+      if ((typeof poke) !== Object) {
+        document.write(`This Pokemon isn't formatted correctly!`)
+    }
+    else {pokemonList.push(pokemon);}
     }
   
     function getAll() {
@@ -29,4 +32,5 @@ let pokemonRepository = (function () {
         document.write(` Wow, that's big!<br>`);}
         else {document.write('<br>')}
   });
+
 
