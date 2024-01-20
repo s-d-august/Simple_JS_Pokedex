@@ -21,7 +21,7 @@ let pokemonRepository = (function () {
 
 // Lists names and weights of pokemonList
 
-pokemonList.forEach(function(poke) {
+(pokemonRepository.getAll()).forEach(function(poke) {
     let pokeName = poke.name;
     let pokeWeight = poke.weight;
     document.write(`${pokeName} (weight: ${pokeWeight})`);
