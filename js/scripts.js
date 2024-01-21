@@ -7,12 +7,12 @@ let pokemonRepository = (function () {
 
     function add(poke) {
         if ((typeof poke) !== "object") {
-            document.write(`This Pokemon isn't formatted as an object!<br>`)
+            console.log(`This Pokemon isn't formatted as an object!<br>`)
         }
         else if ((poke.hasOwnProperty('name' || 'types' || 'number' || 'weight'))) {
             { pokemonList.push(poke); }
         }
-        else document.write(`This Pokemon doesn't have any of the correct keys!<br>`)
+        else console.log(`This Pokemon doesn't have any of the correct keys!<br>`)
     }
 
     function getAll() {
