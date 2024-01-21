@@ -19,9 +19,14 @@ let pokemonRepository = (function () {
       return pokemonList;
     }
   
+    function nameFilter(poke) {
+        return (pokemonList.filter(pokemon => pokemon.name == poke));
+    }
+
     return {
-      add: add,
-      getAll: getAll
+        add: add,
+        getAll: getAll,
+        nameFilter: nameFilter,
     };
   })();
 
@@ -35,6 +40,17 @@ let pokemonRepository = (function () {
         document.write(` Wow, that's big!<br>`);}
         else {document.write('<br>')}
   });
+(pokemonRepository.nameFilter()).forEach(function (poke) {
+    let pokeName = poke.name;
+    let pokeWeight = poke.weight;
+    document.write(`${pokeName} (weight: ${pokeWeight})`);
+    if (pokeWeight > 100) {
+        document.write(` Wow, that's big!<br>`);
+    }
+    else { document.write('<br>') }
+});
+
+
 
 
 
