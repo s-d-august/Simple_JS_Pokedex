@@ -32,7 +32,7 @@ let pokemonRepository = (function () {
 
 // Lists names and weights of pokemonList
 
-(pokemonRepository.getAll()).forEach(function (poke) {
+pokemonRepository.getAll().forEach(function (poke) {
     let pokeName = poke.name;
     let pokeWeight = poke.weight;
     document.write(`${pokeName} (weight: ${pokeWeight})`);
@@ -44,7 +44,7 @@ let pokemonRepository = (function () {
 
 // Search pokemonList by name
 
-(pokemonRepository.nameFilter()).forEach(function (poke) {
+pokemonRepository.nameFilter().forEach(function (poke) {
     let pokeName = poke.name;
     let pokeWeight = poke.weight;
     document.write(`${pokeName} (weight: ${pokeWeight})`);
