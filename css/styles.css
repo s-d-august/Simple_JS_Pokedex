@@ -57,4 +57,11 @@ li {
     outline: none;
     border-radius: 0;
     border: 0;
+
+.button-style:hover {
+    background-color: lightgrey;
+}
+
+.button-style:active {
+    border: inset;
 }
