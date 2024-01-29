@@ -23,26 +23,38 @@ let pokemonRepository = (function () {
         return (pokemonList.filter(pokemon => pokemon.name == poke));
     }
 
+    function showDetails(poke){
+        console.log(poke.name)
+    }
+
+    function addListItem(poke) {
+        let pokeList = document.querySelector('.pokemon-list');
+        let listItem = document.createElement('li');
+        let button = document.createElement('button');
+        button.innerText = poke.name;
+        button.classList.add('button-style')
+        listItem.appendChild(button);
+        pokeList.appendChild(listItem);
+        button.addEventListener('click', function(){
+            showDetails(poke);
+        }
+        )
+    }
+
     return {
         add: add,
         getAll: getAll,
         nameFilter: nameFilter,
+        addListItem: addListItem,
+        showDetails: showDetails,
     };
 })();
 
 // Lists names and weights of pokemonList
 
-pokemonRepository.getAll().forEach(function (poke) {
-    let pokeName = poke.name;
-    let pokeWeight = poke.weight;
-    let pokeList = document.querySelector('.pokemon-list');
-    let listItem = document.createElement('li');
-    let button = document.createElement('button');
-    button.innerText = pokeName;
-    button.classList.add('button-style')
-    listItem.appendChild(button);
-    pokeList.appendChild(listItem);
-
+pokemonRepository.getAll().forEach(function (poke)
+{
+    pokemonRepository.addListItem(poke);
 });
 
 // Search pokemonList by name
