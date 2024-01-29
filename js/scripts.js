@@ -23,9 +23,10 @@ let pokemonRepository = (function () {
         return (pokemonList.filter(pokemon => pokemon.name == poke));
     }
 
-    function showDetails(poke){
+    function showDetails(poke) {
         console.log(poke.name)
     }
+
 
     function addListItem(poke) {
         let pokeList = document.querySelector('.pokemon-list');
@@ -35,7 +36,7 @@ let pokemonRepository = (function () {
         button.classList.add('button-style')
         listItem.appendChild(button);
         pokeList.appendChild(listItem);
-        button.addEventListener('click', function(){
+        button.addEventListener('click', function () {
             showDetails(poke);
         }
         )
@@ -52,8 +53,7 @@ let pokemonRepository = (function () {
 
 // Lists names and weights of pokemonList
 
-pokemonRepository.getAll().forEach(function (poke)
-{
+pokemonRepository.getAll().forEach(function (poke) {
     pokemonRepository.addListItem(poke);
 });
 
