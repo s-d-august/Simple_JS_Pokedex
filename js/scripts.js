@@ -27,6 +27,11 @@ let pokemonRepository = (function () {
         console.log(poke.name)
     }
 
+    function addListener(button, poke) {
+        button.addEventListener('click', function () {
+            showDetails(poke);
+        })}
+
 
     function addListItem(poke) {
         let pokeList = document.querySelector('.pokemon-list');
@@ -36,11 +41,10 @@ let pokemonRepository = (function () {
         button.classList.add('button-style')
         listItem.appendChild(button);
         pokeList.appendChild(listItem);
-        button.addEventListener('click', function () {
-            showDetails(poke);
+        addListener(button, poke);
         }
-        )
-    }
+        
+    
 
     return {
         add: add,
