@@ -35,11 +35,14 @@ let pokemonRepository = (function () {
 pokemonRepository.getAll().forEach(function (poke) {
     let pokeName = poke.name;
     let pokeWeight = poke.weight;
-    document.write(`${pokeName} (weight: ${pokeWeight})`);
-    if (pokeWeight > 100) {
-        document.write(` Wow, that's big!<br>`);
-    }
-    else { document.write('<br>') }
+    let pokeList = document.querySelector('.pokemon-list');
+    let listItem = document.createElement('li');
+    let button = document.createElement('button');
+    button.innerText = pokeName;
+    button.classList.add('button-style')
+    listItem.appendChild(button);
+    pokeList.appendChild(listItem);
+
 });
 
 // Search pokemonList by name
