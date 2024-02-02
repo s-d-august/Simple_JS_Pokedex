@@ -14,8 +14,6 @@ h3 {
     width: 350px;
 }
 
-
-
 .box__wrap {
     height: 100%;
     width: 100%;
@@ -65,6 +63,7 @@ li {
     border-radius: 5px;
     border: outset;
     text-align: left;
+    text-transform: capitalize;
 }
 
 .button-style:hover {
