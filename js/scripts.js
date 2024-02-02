@@ -20,9 +20,7 @@ let pokemonRepository = (function () {
         return (pokemonList.filter(pokemon => pokemon.name == poke));
     }
 
-    function showDetails(poke) {
-        console.log(poke.name)
-    }
+    
 
     function addListener(button, poke) {
         button.addEventListener('click', function () {
@@ -48,15 +46,37 @@ let pokemonRepository = (function () {
       return response.json();
     }).then(function (json) {
       json.results.forEach(function (item) {
-        let pokemon = {
+        let poke = {
           name: item.name,
           detailsUrl: item.url
         };
-        add(pokemon);
+        add(poke);
       });
     }).catch(function (e) {
       console.error(e);
     })
+  }
+
+  
+
+  function loadDetails(item) {
+    let url = item.detailsUrl;
+    return fetch(url).then(function (response) {
+      return response.json();
+    }).then(function (details) {
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default;
+      item.height = details.height;
+      item.types = details.types;
+    }).catch(function (e) {
+      console.error(e);
+    });
+  }
+
+  function showDetails(poke) {
+    loadDetails(poke).then(function () {
+      console.log(poke);
+    });
   }
     
 
@@ -67,14 +87,18 @@ let pokemonRepository = (function () {
         addListItem: addListItem,
         showDetails: showDetails,
         loadList: loadList,
+        loadDetails: loadDetails,
     };
 })();
 
 // Lists names and weights of pokemonList
 
-pokemonRepository.getAll().forEach(function (poke) {
-    pokemonRepository.addListItem(poke);
-});
+pokemonRepository.loadList().then(function() {
+    // Now the data is loaded!
+    pokemonRepository.getAll().forEach(function(poke){
+      pokemonRepository.addListItem(poke);
+    });
+  });
 
 // Search pokemonList by name
 
