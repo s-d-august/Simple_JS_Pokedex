@@ -14,13 +14,21 @@ h3 {
     width: 350px;
 }
 
-.box {
+
+
+.box__wrap {
     height: 100%;
     width: 100%;
     outline: black solid 5px;
     background-color: firebrick;
-    padding: 10px;
     border-radius: 0 5px 5px 5px;
+    overflow: hidden;
+}
+
+.box {
+    overflow-y: auto;
+    height: inherit;
+    padding: 10px;
 }
 
 .tab {
