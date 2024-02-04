@@ -34,7 +34,7 @@ let pokemonRepository = (function () {
         let listItem = document.createElement('li');
         let button = document.createElement('button');
         button.innerText = poke.name;
-        button.classList.add('button-style')
+        button.classList.add('button-style');
         listItem.appendChild(button);
         pokeList.appendChild(listItem);
         addListener(button, poke);
