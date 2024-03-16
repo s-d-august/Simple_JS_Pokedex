@@ -20,9 +20,9 @@ let modalContainer = document.querySelector('#modal-container');
       let imgElement = document.createElement('img');
       imgElement.src = poke.imageUrl;
 
-      modal.appendChild(nameElement);  
+  
       modal.appendChild(closeButtonElement);
-
+      modal.appendChild(nameElement);
       modal.appendChild(heightElement);
       modal.appendChild(imgElement);
       modalContainer.appendChild(modal);

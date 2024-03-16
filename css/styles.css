@@ -8,6 +8,7 @@ body {
 
 h1 {
     text-transform: capitalize;
+    margin: 20px;
 }
 
 h3 {
@@ -70,7 +71,6 @@ position: absolute;
   
 .modal {
     margin: auto;
-    display: grid;
     box-sizing: border-box;
     background: #fff;
     padding: 15px;
@@ -126,5 +126,7 @@ li {
   }
 
 .modal-close {
+    width: fit-content;
+    height: fit-content;
     float: right;
 }
