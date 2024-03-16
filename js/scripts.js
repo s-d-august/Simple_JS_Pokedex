@@ -15,7 +15,8 @@ let modalContainer = document.querySelector('#modal-container');
       nameElement.innerText = poke.name;
   
       let heightElement = document.createElement('p');
-      heightElement.innerText = poke.height;
+      heightElement.innerText = 'Height: ' + poke.height;
+
 
       let imgElement = document.createElement('img');
       imgElement.src = poke.imageUrl;
@@ -23,8 +24,8 @@ let modalContainer = document.querySelector('#modal-container');
   
       modal.appendChild(closeButtonElement);
       modal.appendChild(nameElement);
-      modal.appendChild(heightElement);
-      modal.appendChild(imgElement);
+    modal.appendChild(imgElement);
+    modal.appendChild(heightElement);
       modalContainer.appendChild(modal);
       
       modalContainer.classList.add('is-visible');
