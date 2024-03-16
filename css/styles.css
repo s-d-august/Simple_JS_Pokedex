@@ -56,25 +56,25 @@ p {
 }
 
 #modal-container {
-position: absolute;
+    position: absolute;
     padding: 35px;
     box-sizing: border-box;
     margin: 0;
     width: 350px;
     height: 500px;
     background: rgba(0, 0, 0, 0.5);
-    
+
     /* to show it above other content */
-    z-index: 999; 
-    
+    z-index: 999;
+
     /* to allow scrolling if the screen is not high enough*/
-    overflow: auto; 
-    
+    overflow: auto;
+
     /* this is used to center the modal */
     display: grid;
     text-align: center;
-  }
-  
+}
+
 .modal {
     margin: auto;
     box-sizing: border-box;
@@ -86,7 +86,7 @@ position: absolute;
     border-radius: 5px;
     border: 3px black solid;
     grid-template-columns: 1fr 1fr;
-  }
+}
 
 ul {
     list-style: none;
@@ -123,12 +123,12 @@ li {
 
 #modal-container {
     display: none;
-  }
-  
+}
+
 #modal-container.is-visible {
     /* CSS for modal container - add your own desired CSS styles here */
     display: block;
-  }
+}
 
 .modal-close {
     width: fit-content;
