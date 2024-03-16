@@ -17,6 +17,12 @@ let modalContainer = document.querySelector('#modal-container');
       let heightElement = document.createElement('p');
       heightElement.innerText = 'Height: ' + poke.height;
 
+      let typesText = poke.types.forEach(function(type) {
+        return(type);
+      })
+
+      let typesElement = document.createElement('p');
+      typesElement.innerText = 'Types: ' + typesText;
 
       let imgElement = document.createElement('img');
       imgElement.src = poke.imageUrl;
@@ -26,6 +32,7 @@ let modalContainer = document.querySelector('#modal-container');
       modal.appendChild(nameElement);
     modal.appendChild(imgElement);
     modal.appendChild(heightElement);
+    modal.appendChild(typesElement);
       modalContainer.appendChild(modal);
       
       modalContainer.classList.add('is-visible');
