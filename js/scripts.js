@@ -1,3 +1,58 @@
+let modalContainer = document.querySelector('#modal-container');
+    
+    function showModal(poke) {
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+      modalContainer.innerHTML = '';
+  
+      let closeButtonElement = document.createElement('button');
+      closeButtonElement.classList.add('modal-close');
+      closeButtonElement.innerText = 'Close';
+      closeButtonElement.addEventListener('click', hideModal);
+  
+      let nameElement = document.createElement('h1');
+      nameElement.innerText = poke.name;
+  
+      let heightElement = document.createElement('p');
+      heightElement.innerText = poke.height;
+
+      let imgElement = document.createElement('img');
+      imgElement.src = poke.imageUrl;
+
+      modal.appendChild(nameElement);  
+      modal.appendChild(closeButtonElement);
+
+      modal.appendChild(heightElement);
+      modal.appendChild(imgElement);
+      modalContainer.appendChild(modal);
+      
+      modalContainer.classList.add('is-visible');
+
+    }
+  
+    function hideModal() {
+      modalContainer.classList.remove('is-visible');
+
+    }
+  
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+        hideModal();  
+      }
+    });
+    
+    modalContainer.addEventListener('click', (e) => {
+      // Since this is also triggered when clicking INSIDE the modal
+      // We only want to close if the user clicks directly on the overlay
+      let target = e.target;
+      if (target === modalContainer) {
+        hideModal();
+      }
+    });
+  
+
+
 let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
@@ -76,7 +131,7 @@ let pokemonRepository = (function () {
 
     function showDetails(poke) {
         loadDetails(poke).then(function () {
-            console.log(poke);
+            showModal(poke);
         });
     }
 
@@ -91,6 +146,8 @@ let pokemonRepository = (function () {
         loadDetails: loadDetails,
     };
 })();
+
+
 
 // Lists names and weights of pokemonList
 

@@ -6,6 +6,10 @@ body {
     margin: 20px;
 }
 
+h1 {
+    text-transform: capitalize;
+}
+
 h3 {
     color: aliceblue;
     position: absolute;
@@ -66,7 +70,7 @@ position: absolute;
   
 .modal {
     margin: auto;
-    display: inline-block;
+    display: grid;
     box-sizing: border-box;
     background: #fff;
     padding: 15px;
@@ -76,6 +80,7 @@ position: absolute;
     text-align: left;
     border-radius: 5px;
     border: 3px black solid;
+    grid-template-columns: 1fr 1fr;
   }
 
 ul {
@@ -109,4 +114,17 @@ li {
 
 .button-style:active {
     border: inset;
+}
+
+#modal-container {
+    display: none;
+  }
+  
+#modal-container.is-visible {
+    /* CSS for modal container - add your own desired CSS styles here */
+    display: block;
+  }
+
+.modal-close {
+    float: right;
 }
