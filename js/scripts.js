@@ -17,15 +17,16 @@ function showModal(poke) {
     let heightElement = document.createElement('p');
     heightElement.innerText = 'Height: ' + poke.height;
 
-    let typesText = poke.types.forEach(function (type) {
-        return (type);
-    })
+    let typesText = poke.types.map(function (type) {
+        return type.type.name;
+    }).join(', ');
 
     let typesElement = document.createElement('p');
     typesElement.innerText = 'Types: ' + typesText;
 
     let imgElement = document.createElement('img');
     imgElement.src = poke.imageUrl;
+
 
 
     modal.appendChild(closeButtonElement);

@@ -21,6 +21,7 @@ h3 {
 p {
     text-align: left;
     margin-top: 0;
+    text-transform: capitalize;
 }
 
 .frame {
