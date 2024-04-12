@@ -1,13 +1,15 @@
 let modalContainer = document.querySelector('#modal-container');
 
 function showModal(poke) {
-    let modal = document.createElement('div');
-    modal.classList.add('modal');
+    let modalBody = $('.modal-body');
+    let modalTitle = $('.modal-title');
+    let modalHeader = $('.modal-header');
 
-    modalContainer.innerHTML = '';
+    modalTitle.empty();
+    modalBody.empty();
 
     let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close');
+    closeButtonElement.classList.add('modal-close', 'btn', 'btn-outline-danger');
     closeButtonElement.innerText = 'Close';
     closeButtonElement.addEventListener('click', hideModal);
 
@@ -29,11 +31,11 @@ function showModal(poke) {
 
 
 
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(nameElement);
-    modal.appendChild(imgElement);
-    modal.appendChild(heightElement);
-    modal.appendChild(typesElement);
+    modalBody.appendChild(closeButtonElement);
+    modalTitle.appendChild(nameElement);
+    modalBody.appendChild(imgElement);
+    modalBody.appendChild(heightElement);
+    modalBody.appendChild(typesElement);
     modalContainer.appendChild(modal);
 
     modalContainer.classList.add('is-visible');
@@ -87,7 +89,7 @@ let pokemonRepository = (function () {
 
 
     function addListener(button, poke) {
-        button.addEventListener('click', function () {
+        $(button).on('click', function () {
             showDetails(poke);
         })
     }
@@ -96,11 +98,9 @@ let pokemonRepository = (function () {
     function addListItem(poke) {
         let pokeList = document.querySelector('.pokemon-list');
         let listItem = document.createElement('li');
-        let button = document.createElement('button');
-        button.innerText = poke.name;
-        button.classList.add('button-style');
-        listItem.appendChild(button);
-        pokeList.appendChild(listItem);
+        let button = $('<button type="button" class="btn button-style" data-toggle="modal" data-target="modal">' + poke.name + '</button>')
+        listItem.append(button);
+        pokeList.append(listItem);
         addListener(button, poke);
     }
 
