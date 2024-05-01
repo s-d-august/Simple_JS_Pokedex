@@ -71,7 +71,7 @@ let pokemonRepository = (function () {
 
 
     function addListItem(poke) {
-        let pokeList = document.querySelector('#pokelist');
+        let pokeList = $('#pokelist');
         let listItem = $('<li class="list-group-item"></li>');
         let button = $('<button type="button" class="btn button-style" data-toggle="modal" data-target="#modal">' + poke.name + '</button>')
         listItem.append(button);
@@ -84,13 +84,13 @@ let pokemonRepository = (function () {
     function loadList() {
         return $.ajax(apiUrl, {dataType: 'json'}).then(function (responseJSON) {
             console.log(responseJSON);
-            $.each(responseJSON, function (item, index) {
+            $.each(responseJSON.results, function (index, item) {
                 let poke = {
                     name: item.name,
                     detailsUrl: item.url
                 };
                 add(poke);
-                console.log(poke)
+
             });
         }).catch(function (e) {
             console.error(e);
