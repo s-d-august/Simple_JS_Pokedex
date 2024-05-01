@@ -1,4 +1,4 @@
-let modalContainer = document.querySelector('#modal-container');
+
 
 function showModal(poke) {
     let modalBody = $('.modal-body');
@@ -71,9 +71,9 @@ let pokemonRepository = (function () {
 
 
     function addListItem(poke) {
-        let pokeList = document.querySelector('.pokemon-list');
-        let listItem = document.createElement('li');
-        let button = $('<button type="button" class="btn button-style" data-toggle="modal" data-target="modal">' + poke.name + '</button>')
+        let pokeList = document.querySelector('#pokelist');
+        let listItem = $('<li class="list-group-item"></li>');
+        let button = $('<button type="button" class="btn button-style" data-toggle="modal" data-target="#modal">' + poke.name + '</button>')
         listItem.append(button);
         pokeList.append(listItem);
         addListener(button, poke);
@@ -82,15 +82,15 @@ let pokemonRepository = (function () {
 
 
     function loadList() {
-        return fetch(apiUrl).then(function (response) {
-            return response.json();
-        }).then(function (json) {
-            json.results.forEach(function (item) {
+        return $.ajax(apiUrl, {dataType: 'json'}).then(function (responseJSON) {
+            console.log(responseJSON);
+            $.each(responseJSON, function (item, index) {
                 let poke = {
                     name: item.name,
                     detailsUrl: item.url
                 };
                 add(poke);
+                console.log(poke)
             });
         }).catch(function (e) {
             console.error(e);
@@ -100,10 +100,8 @@ let pokemonRepository = (function () {
 
 
     function loadDetails(poke) {
-        let url = poke.detailsUrl;
-        return fetch(url).then(function (response) {
-            return response.json();
-        }).then(function (details) {
+        let pokeUrl = poke.detailsUrl;
+        return $.ajax(pokeUrl, {dataType: 'json'}).then(function (details) {
             // Now we add the details to the item
             poke.imageUrl = details.sprites.front_default;
             poke.height = details.height;
@@ -132,7 +130,7 @@ let pokemonRepository = (function () {
 
 
 
-// Lists names and weights of pokemonList
+// Loads data and constructs list
 
 pokemonRepository.loadList().then(function () {
     // Now the data is loaded!
