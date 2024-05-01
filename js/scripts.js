@@ -3,7 +3,6 @@ let modalContainer = document.querySelector('#modal-container');
 function showModal(poke) {
     let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
-    let modalHeader = $('.modal-header');
 
     modalTitle.empty();
     modalBody.empty();
@@ -38,29 +37,9 @@ function showModal(poke) {
     modalBody.appendChild(typesElement);
     modalContainer.appendChild(modal);
 
-    modalContainer.classList.add('is-visible');
+
 
 }
-
-function hideModal() {
-    modalContainer.classList.remove('is-visible');
-
-}
-
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-        hideModal();
-    }
-});
-
-modalContainer.addEventListener('click', (e) => {
-    // Since this is also triggered when clicking INSIDE the modal
-    // We only want to close if the user clicks directly on the overlay
-    let target = e.target;
-    if (target === modalContainer) {
-        hideModal();
-    }
-});
 
 
 
@@ -80,10 +59,6 @@ let pokemonRepository = (function () {
 
     function getAll() {
         return pokemonList;
-    }
-
-    function nameFilter(poke) {
-        return (pokemonList.filter(pokemon => pokemon.name == poke));
     }
 
 
@@ -148,7 +123,6 @@ let pokemonRepository = (function () {
     return {
         add: add,
         getAll: getAll,
-        nameFilter: nameFilter,
         addListItem: addListItem,
         showDetails: showDetails,
         loadList: loadList,
@@ -166,19 +140,6 @@ pokemonRepository.loadList().then(function () {
         pokemonRepository.addListItem(poke);
     });
 });
-
-// Search pokemonList by name
-
-pokemonRepository.nameFilter().forEach(function (poke) {
-    let pokeName = poke.name;
-    let pokeWeight = poke.weight;
-    document.write(`${pokeName} (weight: ${pokeWeight})`);
-    if (pokeWeight > 100) {
-        document.write(` Wow, that's big!<br>`);
-    }
-    else { document.write('<br>') }
-});
-
 
 
 
