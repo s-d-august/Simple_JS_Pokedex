@@ -1,43 +1,24 @@
 
 
 function showModal(poke) {
-    let modalBody = $('.modal-body');
     let modalTitle = $('.modal-title');
+    let modalImg = $('.modal-img');
+    let modalText = $('.modal-text')
 
     modalTitle.empty();
-    modalBody.empty();
-
-    let closeButtonElement = document.createElement('button');
-    closeButtonElement.classList.add('modal-close', 'btn', 'btn-outline-danger');
-    closeButtonElement.innerText = 'Close';
-    closeButtonElement.addEventListener('click', hideModal);
-
-    let nameElement = document.createElement('h1');
-    nameElement.innerText = poke.name;
-
-    let heightElement = document.createElement('p');
-    heightElement.innerText = 'Height: ' + poke.height;
+    modalImg.empty();
+    modalText.empty();
 
     let typesText = poke.types.map(function (type) {
         return type.type.name;
     }).join(', ');
 
-    let typesElement = document.createElement('p');
-    typesElement.innerText = 'Types: ' + typesText;
-
-    let imgElement = document.createElement('img');
-    imgElement.src = poke.imageUrl;
-
-
-
-    modalBody.appendChild(closeButtonElement);
-    modalTitle.appendChild(nameElement);
-    modalBody.appendChild(imgElement);
-    modalBody.appendChild(heightElement);
-    modalBody.appendChild(typesElement);
-    modalContainer.appendChild(modal);
-
-
+    modalTitle.text(poke.name);
+    modalImg.attr('src', poke.imageUrl);
+    modalText.text(
+        `Height: ${poke.height}
+Types: ${typesText}`
+    )
 
 }
 
