@@ -63,7 +63,7 @@ let pokemonRepository = (function () {
 
 
     function loadList() {
-        return $.ajax(apiUrl, {dataType: 'json'}).then(function (responseJSON) {
+        return $.ajax(apiUrl, { dataType: 'json' }).then(function (responseJSON) {
             console.log(responseJSON);
             $.each(responseJSON.results, function (index, item) {
                 let poke = {
@@ -82,7 +82,7 @@ let pokemonRepository = (function () {
 
     function loadDetails(poke) {
         let pokeUrl = poke.detailsUrl;
-        return $.ajax(pokeUrl, {dataType: 'json'}).then(function (details) {
+        return $.ajax(pokeUrl, { dataType: 'json' }).then(function (details) {
             // Now we add the details to the item
             poke.imageUrl = details.sprites.front_default;
             poke.height = details.height;
