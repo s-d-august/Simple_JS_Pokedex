@@ -54,7 +54,7 @@ let pokemonRepository = (function () {
     function addListItem(poke) {
         let pokeList = $('#pokelist');
         let listItem = $('<li class="list-group-item"></li>');
-        let button = $('<button type="button" class="btn button-style" data-toggle="modal" data-target="#modal">' + poke.name + '</button>')
+        let button = $('<button type="button" class="btn button-style text-capitalize" data-toggle="modal" data-target="#modal">' + poke.name + '</button>')
         listItem.append(button);
         pokeList.append(listItem);
         addListener(button, poke);
