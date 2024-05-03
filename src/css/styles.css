@@ -1,0 +1,7 @@
+* {
+    text-transform: capitalize;
+}
+
+p {
+    white-space: pre-wrap;
+}
