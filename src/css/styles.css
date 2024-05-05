@@ -5,3 +5,7 @@
 p {
     white-space: pre-wrap;
 }
+
+#pokelist {
+    margin-top: 56px;
+}
