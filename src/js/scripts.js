@@ -57,7 +57,6 @@ let pokemonRepository = (function () {
   function loadList() {
     return $.ajax(apiUrl, { dataType: "json" })
       .then(function (responseJSON) {
-        console.log(responseJSON);
         $.each(responseJSON.results, function (index, item) {
           let poke = {
             name: item.name,
