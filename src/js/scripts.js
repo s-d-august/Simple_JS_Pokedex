@@ -3,11 +3,6 @@ const modalImg = $(".modal-img");
 const modalText = $(".modal-text");
 
 function showModal(poke) {
-
-  modalTitle.empty();
-  modalImg.empty();
-  modalText.empty();
-
   let typesText = poke.types
     .map(function (type) {
       return type.type.name;
@@ -114,3 +109,9 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(poke);
   });
 });
+
+$('#modal').on('hidden.bs.modal', function(){ // empties contents of modal when closed
+  modalTitle.empty();
+  modalImg.attr("src", "");
+  modalText.empty();
+})
