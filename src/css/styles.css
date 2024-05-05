@@ -9,3 +9,7 @@ p {
 #pokelist {
     margin-top: 56px;
 }
+
+.navbar {
+    background-color: darkred;
+}
