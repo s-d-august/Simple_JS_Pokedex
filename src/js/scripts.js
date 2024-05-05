@@ -49,7 +49,7 @@ let pokemonRepository = (function () {
     let pokeList = $("#pokelist");
     let listItem = $('<li class="list-group-item"></li>');
     let button = $(
-      '<button type="button" class="btn button-style text-capitalize" data-toggle="modal" data-target="#modal">' +
+      '<button type="button" class="btn button-style text-capitalize btn-block text-sm-left" data-toggle="modal" data-target="#modal">' +
         poke.name +
         "</button>"
     );
