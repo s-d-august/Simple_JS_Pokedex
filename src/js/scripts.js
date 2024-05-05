@@ -1,7 +1,8 @@
+const modalTitle = $(".modal-title");
+const modalImg = $(".modal-img");
+const modalText = $(".modal-text");
+
 function showModal(poke) {
-  let modalTitle = $(".modal-title");
-  let modalImg = $(".modal-img");
-  let modalText = $(".modal-text");
 
   modalTitle.empty();
   modalImg.empty();
