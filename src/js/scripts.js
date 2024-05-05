@@ -1,12 +1,8 @@
+const modalTitle = $(".modal-title");
+const modalImg = $(".modal-img");
+const modalText = $(".modal-text");
+
 function showModal(poke) {
-  let modalTitle = $(".modal-title");
-  let modalImg = $(".modal-img");
-  let modalText = $(".modal-text");
-
-  modalTitle.empty();
-  modalImg.empty();
-  modalText.empty();
-
   let typesText = poke.types
     .map(function (type) {
       return type.type.name;
@@ -21,9 +17,9 @@ Types: ${typesText}`
   );
 }
 
-let pokemonRepository = (function () {
-  let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+const pokemonRepository = (function () {
+  const pokemonList = [];
+  const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function add(poke) {
     if (typeof poke !== "object") {
@@ -46,12 +42,10 @@ let pokemonRepository = (function () {
   }
 
   function addListItem(poke) {
-    let pokeList = $("#pokelist");
+    const pokeList = $('#pokelist');
     let listItem = $('<li class="list-group-item"></li>');
-    let button = $(
-      '<button type="button" class="btn button-style text-capitalize" data-toggle="modal" data-target="#modal">' +
-        poke.name +
-        "</button>"
+    let button = $(`<button type="button" class="btn button-style text-capitalize btn-block text-sm-left" 
+    data-toggle="modal" data-target="#modal">${poke.name}</button>`
     );
     listItem.append(button);
     pokeList.append(listItem);
@@ -61,7 +55,6 @@ let pokemonRepository = (function () {
   function loadList() {
     return $.ajax(apiUrl, { dataType: "json" })
       .then(function (responseJSON) {
-        console.log(responseJSON);
         $.each(responseJSON.results, function (index, item) {
           let poke = {
             name: item.name,
@@ -113,3 +106,9 @@ pokemonRepository.loadList().then(function () {
     pokemonRepository.addListItem(poke);
   });
 });
+
+$('#modal').on('hidden.bs.modal', function(){ // empties contents of modal when closed
+  modalTitle.empty();
+  modalImg.attr("src", "");
+  modalText.empty();
+})
