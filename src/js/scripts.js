@@ -17,9 +17,9 @@ Types: ${typesText}`
   );
 }
 
-let pokemonRepository = (function () {
-  let pokemonList = [];
-  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
+const pokemonRepository = (function () {
+  const pokemonList = [];
+  const apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
   function add(poke) {
     if (typeof poke !== "object") {
@@ -42,7 +42,7 @@ let pokemonRepository = (function () {
   }
 
   function addListItem(poke) {
-    let pokeList = $("#pokelist");
+    const pokeList = $('#pokelist');
     let listItem = $('<li class="list-group-item"></li>');
     let button = $(
       '<button type="button" class="btn button-style text-capitalize btn-block text-sm-left" data-toggle="modal" data-target="#modal">' +
